@@ -1,1 +1,345 @@
-/* Your styles here */
+/* Your styles here *//* =====================================================
+   RESET + GLOBAL BASE (OOCSS FOUNDATION)
+===================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =====================================================
+   CSS VARIABLES (THEME + RESPONSIVE SIZING)
+===================================================== */
+:root {
+  /* Color Palette – Sage Tech Theme */
+  --sage-dark: #2f3e3a;
+  --sage-medium: #4f6f64;
+  --sage-light: #e6f0ec;
+  --accent: #9cc5b1;
+  --white: #ffffff;
+  --text-dark: #24322e;
+
+  /* Typography */
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+  /* Responsive Font Sizes */
+  --fs-h1: clamp(2rem, 5vw, 3.2rem);
+  --fs-h2: clamp(1.6rem, 4vw, 2.4rem);
+  --fs-body: clamp(1rem, 2vw, 1.1rem);
+
+  /* Spacing */
+  --section-padding: 4rem;
+  --card-padding: 1.5rem;
+
+  /* Effects */
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================================
+   BASE ELEMENT STYLES
+===================================================== */
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  background-color: var(--sage-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+a,
+button,
+input[type="submit"],
+input[type="reset"] {
+  transition: all 0.3s ease;
+}
+
+/* =====================================================
+   HEADER & NAVIGATION (FLEXBOX + GLASSMORPHISM)
+===================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background-color: rgba(47, 62, 58, 0.85);
+  box-shadow: var(--shadow-soft);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+header nav h1 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #e3eee8;
+  position: relative;
+}
+
+/* Decorative underline using ::after */
+header nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* =====================================================
+   HERO SECTION (ANIMATION + GRADIENT)
+===================================================== */
+.hero {
+  min-height: 60vh;
+  background: linear-gradient(
+      rgba(47, 62, 58, 0.85),
+      rgba(47, 62, 58, 0.85)
+    );
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+}
+
+.hero h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  animation: fadeSlideUp 0.9s ease-out forwards;
+}
+
+.hero p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  animation: fadeSlideUp 1.2s ease-out forwards;
+}
+
+/* Entrance animation */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+main {
+  padding: var(--section-padding);
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+section h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  margin-bottom: 1rem;
+}
+
+/* Decorative line under section headings */
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin-top: 8px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+/* =====================================================
+   TABLES (STATS / SCHEDULE)
+===================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: center;
+}
+
+th {
+  background-color: var(--sage-medium);
+  color: var(--white);
+}
+
+td {
+  background-color: var(--white);
+}
+
+/* =====================================================
+   SPEAKERS GRID (CSS GRID)
+===================================================== */
+.speakers,
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.speakers article,
+.speaker-card {
+  background-color: var(--white);
+  padding: var(--card-padding);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.speakers article:hover,
+.speaker-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* =====================================================
+   FORMS (REGISTER / CONTACT)
+===================================================== */
+form {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 2rem;
+}
+
+legend {
+  font-family: var(--font-heading);
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: var(--font-body);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--sage-medium);
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+button,
+input[type="submit"],
+input[type="reset"] {
+  background-color: var(--sage-medium);
+  color: var(--white);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: var(--sage-dark);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background-color: var(--sage-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 4rem;
+}
+
+/* =====================================================
+   RESPONSIVE BREAKPOINTS
+===================================================== */
+
+/* Mobile */
+@media (max-width: 767px) {
+  header nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    padding: 2rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  main {
+    padding: 3rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  main {
+    padding: 4rem 6rem;
+  }
+}
