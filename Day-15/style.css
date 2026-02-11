@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  background: #000;
+  font-family: "Courier New", monospace;
+  color: #00ff88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.terminal {
+  width: 800px;
+  height: 500px;
+  background: #0a0a0a;
+  border: 2px solid #00ff88;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-header {
+  background: #001a12;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #00ff88;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.input-line {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #00ff88;
+}
+
+.prompt {
+  margin-right: 10px;
+}
+
+input {
+  flex: 1;
+  background: black;
+  border: none;
+  color: #00ff88;
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+}
