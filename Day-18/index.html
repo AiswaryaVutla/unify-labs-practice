@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Pet Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="container">
+        <h1>🐾 Digital Pet Simulator</h1>
+
+        <div class="pet-card">
+            <h2 id="petName">Your Pet</h2>
+            <p id="petType"></p>
+
+            <div class="stats">
+                <div class="stat">
+                    <label>Health</label>
+                    <div class="progress">
+                        <div id="healthBar" class="bar"></div>
+                    </div>
+                    <span id="healthValue"></span>
+                </div>
+
+                <div class="stat">
+                    <label>Energy</label>
+                    <div class="progress">
+                        <div id="energyBar" class="bar energy"></div>
+                    </div>
+                    <span id="energyValue"></span>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="feedBtn">Feed 🍖</button>
+                <button id="playBtn">Play 🎾</button>
+            </div>
+
+            <p id="statusMessage" class="status"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
