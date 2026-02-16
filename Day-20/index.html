@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌤 Weather Dashboard</h1>
+
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="Enter city name..." />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div id="loading" class="hidden">
+      <div class="spinner"></div>
+      <p>Fetching weather data...</p>
+    </div>
+
+    <div id="weatherCard" class="weather-card hidden">
+      <h2 id="cityName"></h2>
+      <p class="temp" id="temperature"></p>
+      <p id="description"></p>
+      <div class="details">
+        <span>💧 Humidity: <span id="humidity"></span>%</span>
+        <span>🌬 Wind: <span id="wind"></span> m/s</span>
+      </div>
+    </div>
+
+    <p id="errorMessage" class="error hidden"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
