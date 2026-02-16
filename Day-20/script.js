@@ -11,7 +11,7 @@ const wind = document.getElementById("wind");
 const loading = document.getElementById("loading");
 const errorMessage = document.getElementById("errorMessage");
 
-const API_KEY = "509cdc0f5f5ed960815c3cd01d4fce";
+const API_KEY = "509cdc0f5f50815c3cd01d4fce";
 
 async function getWeather(city) {
   try {
