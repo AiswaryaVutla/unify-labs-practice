@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Settings Manager</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Persistent Settings Manager</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <div class="container">
     <div class="card">
-      <h2>User Settings</h2>
+      <h2>Persistent Settings</h2>
 
       <div class="setting-row">
-        <label for="themeToggle" class="label-text">Theme Mode</label>
+        <label for="themeToggle">Theme Mode</label>
         <label class="switch">
           <input type="checkbox" id="themeToggle">
           <span class="slider"></span>
@@ -20,7 +20,7 @@
       </div>
 
       <div class="setting-row">
-        <label for="languageSelect" class="label-text">Language</label>
+        <label for="languageSelect">Language</label>
         <select id="languageSelect">
           <option value="en">English</option>
           <option value="es">Spanish</option>
@@ -28,10 +28,11 @@
         </select>
       </div>
 
-      <p id="welcomeText" class="welcome"></p>
+      <p id="welcomeText"></p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- ES6 MODULE ENTRY -->
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
